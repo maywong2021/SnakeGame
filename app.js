@@ -41,18 +41,13 @@ function buildApple() {
     let appleRow = Math.floor(Math.random() * gameState.size);
     let appleCol = Math.floor(Math.random() * gameState.size);
     for(let i=0; i < gameState.snake.body.length; i++) {
-        if(appleRow === gameState.snake.body[i][0] && appleRow === gameState.snake.body[i][1]){
-            for(let j=0; j < gameState.snake.body.length; j++) {
-                if(appleCol === gameState.snake.body[j][0] && appleCol === gameState.snake.body[j][1]){
-                    let appleRow = Math.floor(Math.random() * gameState.size);
-                    let appleCol = Math.floor(Math.random() * gameState.size);
-                    gameState.apple = [appleRow, appleCol];
-                } else {
-                    gameState.apple = [appleRow, appleCol];
-                }
-            }
-                
+        while(appleRow === gameState.snake.body[i][0] && appleRow === gameState.snake.body[i][1]){
+            let appleRow = Math.floor(Math.random() * gameState.size);
+            let appleCol = Math.floor(Math.random() * gameState.size);
+            i=0;
         }
+        gameState.apple = [appleRow, appleCol];
+        return;
     }
 }
 
