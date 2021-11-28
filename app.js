@@ -40,15 +40,14 @@ function buildGrid() {
 function buildApple() {
     let appleRow = Math.floor(Math.random() * gameState.size);
     let appleCol = Math.floor(Math.random() * gameState.size);
-    for(let i=0; i < gameState.snake.body.length; i++) {
-        while(appleRow === gameState.snake.body[i][0] && appleRow === gameState.snake.body[i][1]){
-            let appleRow = Math.floor(Math.random() * gameState.size);
-            let appleCol = Math.floor(Math.random() * gameState.size);
-            i=0;
-        }
-        gameState.apple = [appleRow, appleCol];
-        return;
+    gameState.apple = [appleRow, appleCol]
+
+    //SO OUR APPLE DOES NOT SPAWN INSIDE SNAKE
+    while(gameState.grid[appleRow][appleCol] === "snake"){
+        appleRow = Math.floor(Math.random() * gameState.size);
+        appleCol = Math.floor(Math.random() * gameState.size);
     }
+   gameState.apple = [appleRow, appleCol];
 }
 
 //MOVE SNAKE
@@ -151,7 +150,6 @@ function drawSnake() {
         const snakeRow = currentSnake[0];
         const snakeCol = currentSnake[1];
         gameState.grid[snakeRow][snakeCol] = "snake";
-
     }
 }
 
@@ -173,7 +171,6 @@ function easyGame() {
     medButton.classList.remove("active");
     hardButton.classList.remove("active");
     gameState.milliseconds = 500;
-
 }
 
 function medGame() {
@@ -181,9 +178,7 @@ function medGame() {
     easyButton.classList.remove("active");
     hardButton.classList.remove("active");
     gameState.milliseconds = 250;
-
 }
-
 
 function hardGame() {
     hardButton.classList.add("active");
