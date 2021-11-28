@@ -41,9 +41,18 @@ function buildApple() {
     let appleRow = Math.floor(Math.random() * gameState.size);
     let appleCol = Math.floor(Math.random() * gameState.size);
     for(let i=0; i < gameState.snake.body.length; i++) {
-            while(appleRow[0] === gameState.snake.body[i] && appleRow[1] === gameState.snake.body[i]){
-                gameState.apple = [appleRow, appleCol];
+        if(appleRow === gameState.snake.body[i][0] && appleRow === gameState.snake.body[i][1]){
+            for(let j=0; j < gameState.snake.body.length; j++) {
+                if(appleCol === gameState.snake.body[j][0] && appleCol === gameState.snake.body[j][1]){
+                    let appleRow = Math.floor(Math.random() * gameState.size);
+                    let appleCol = Math.floor(Math.random() * gameState.size);
+                    gameState.apple = [appleRow, appleCol];
+                } else {
+                    gameState.apple = [appleRow, appleCol];
+                }
             }
+                
+        }
     }
     //need while loop to check if appleRow and appleCol === "snake", and will run if so
 }
