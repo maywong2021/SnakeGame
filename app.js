@@ -54,7 +54,6 @@ function buildApple() {
                 
         }
     }
-    //need while loop to check if appleRow and appleCol === "snake", and will run if so
 }
 
 //MOVE SNAKE
