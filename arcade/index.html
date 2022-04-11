@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+<body>
+    <h1> SNAKE </h1>
+    <div id="scores">
+        <p>Score: <span id="score">0</span></p>
+        <p>Highest Score: <span id="high-score">0</span></p>
+    </div>
+    <div id = "grid-container"></div>
+
+    <div id="buttons-container">
+    <button type="button" class="buttons" id ="start" onclick ="startGame()">Start</button>
+    <button type="button" class="buttons" id ="play-again" onclick ="playAgain()">Play Again</button>
+    <button type="button" class="difficulty buttons active" id ="easy" onclick ="easyGame()">Easy</button>
+    <button type="button" class="difficulty buttons" id ="med" onclick ="medGame()">Medium</button>
+    <button type="button" class="difficulty buttons" id ="hard" onclick ="hardGame()">Hard</button>
+    </div>
+    
+    <script src='app.js'></script>
+</body>
+</html>
